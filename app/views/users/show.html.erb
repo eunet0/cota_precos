@@ -1,0 +1,46 @@
+<h2> Meu Perfil </h2>
+
+<% unless @user.foto.nil? %>
+  <p>
+    <%= image_tag @user.foto, class: "img img-circle img-responsive", size: 400 %>
+  </p>
+<% end %>
+
+<p>
+  <strong> Nome: </strong>
+  <%= @user.nome %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @user.cidade %>
+</p>
+
+<p>
+  <strong>Bairro:</strong>
+  <%= @user.bairro %>
+</p>
+
+<p>
+  <strong>Rua:</strong>
+  <%= @user.rua %>
+</p>
+
+<p>
+  <strong>Número:</strong>
+  <%= @user.numero %>
+</p>
+
+<p>
+  <strong>Complemento:</strong>
+  <%= @user.complemento %>
+</p>
+
+<p>
+  <%= link_to "Editar Perfil", edit_user_registration_path, class: "btn btn-warning" %>
+</p>

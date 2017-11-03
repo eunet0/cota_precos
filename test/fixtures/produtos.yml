@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  embalagem: 1
+  atacadao: MyString
+  assai: MyString
+  walmart: MyString
+
+two:
+  nome: MyString
+  embalagem: 1
+  atacadao: MyString
+  assai: MyString
+  walmart: MyString

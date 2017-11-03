@@ -1,0 +1,53 @@
+<%- model_class = Produto -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+
+<center>
+  <%#= image_tag("http://www.futebolmelhor.com.br/media_v2.53/img/pack_promo.png", class: "img img-responsive") %>
+</center>
+
+<br>
+
+<div class="table-responsive">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th><%#= model_class.human_attribute_name(:id) %>N*</th>
+      <th><%= model_class.human_attribute_name(:nome) %></th>
+      <th><%= model_class.human_attribute_name(:embalagem) %></th>
+      <th>Atacadão<%#= model_class.human_attribute_name(:atacadao) %></th>
+      <th>Assaí<%#= model_class.human_attribute_name(:assai) %></th>
+      <th><%= model_class.human_attribute_name(:walmart) %></th>
+      <th>Data<%#= model_class.human_attribute_name(:created_at) %>
+      </th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @produtos.each do |produto| %>
+      <tr>
+        <td><%= link_to produto.id, produto_path(produto) %></td>
+        <td><%= produto.nome.capitalize %></td>
+        <td><%= produto.embalagem %></td>
+        <td><%= produto.atacadao %></td>
+        <td><%= produto.assai %></td>
+        <td><%= produto.walmart %></td>
+        <td><%= produto.created_at.strftime("%d/%m/%y") %></td>
+        <td>
+          <%= link_to 'Visualizar', produto_path(produto), :class => 'btn btn-success btn-xs' %>
+          <%= link_to 'Editar', edit_produto_path(produto), :class => 'btn btn-warning btn-xs' %>
+          <%= link_to 'Deletar',produto_path(produto),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<%= link_to 'Adicionar Oferta', new_produto_path,
+            :class => 'btn btn-primary' 
+%>

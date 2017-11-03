@@ -1,0 +1,68 @@
+<h2>Fazer Cadastro</h2>
+<hr>
+<%= image_tag("http://icons.iconarchive.com/icons/custom-icon-design/flatastic-3/256/signup-icon.png", class: "img img-responsive img-rounded") %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+ <form class="form-horizontal">
+   <div class="form-group">
+     <div class="field">
+      <%= f.label :nome %><br />
+      <p>
+        <%= f.text_field :nome, autofocus: true, class: "form-control" %>
+      </p>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br />
+      <p>
+        <%= f.email_field :email,  class: "form-control" %>
+      </p>
+    </div>
+
+    <div class="field">
+      <%= f.label :cidade %><br />
+      <p>
+        <%= f.text_field :cidade, class: "form-control" %>
+      </p>
+    </div>
+    <div class="field">
+      <%= f.label :bairro %><br />
+      <p>
+        <%= f.text_field :bairro, class: "form-control" %>
+      </p>
+    </div>
+    <div class="field">
+      <%= f.label :complemento %><br />
+      <p>
+        <%= f.text_field :complemento, class: "form-control" %>
+      </p>
+    </div>
+    <div class="field ">
+      <%= f.label :numero %><br />
+      <p>
+        <%= f.number_field :numero, class: "form-control" %>
+      </p>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %><br />
+      <p>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+      </p>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <p>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+      </p>
+    </div>
+    <div class="actions">
+      <%= f.submit t('.sign_up'), class: "btn btn-success" %>
+    </div>
+     </div>
+   </form>
+<% end %>
+
+<%= render "devise/shared/links" %>

@@ -1,0 +1,24 @@
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h1 class="text-center">Bem-Vindo ao Cota Preços</h1>
+    </div>
+</div>
+
+<center>
+    <%= image_tag("https://maxcdn.icons8.com/Share/icon/Finance//usd1600.png", class: "img img-responsive img-rounded", size: 400) %>
+    <br>
+
+    <p id="p-home">
+        O que deseja fazer ?
+    </p>
+    <p class="botoes">
+      <% if user_signed_in? %>
+        <%= link_to "Visualizar Ofertas", produtos_path, class: "btn btn-success btn-lg" %>
+        <%= link_to "Adicionar Produto", new_produto_path, class: "btn btn-info btn-lg" %>
+      <% else %>
+        <%= link_to "Fazer Login", new_user_session_path, class: "btn btn-info btn-lg" %>
+        <%= link_to "Fazer Cadastro", new_user_registration_path, class: "btn btn-warning btn-lg" %>
+      <% end %>
+    </p>
+</center>

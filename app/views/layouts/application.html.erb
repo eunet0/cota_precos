@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ProjetoCotacao</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag("https://maxcdn.icons8.com/Share/icon/Finance//usd1600.png") %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+  </head>
+
+  <body>
+  <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to root_path, class: "navbar-brand" do %>
+            <%= image_tag  "https://maxcdn.icons8.com/Share/icon/Finance//usd1600.png", size: 30 %>
+           <% end %>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to root_path do %>
+              <i class="fa fa-home fa-2x" aria-hidden="true"></i>            
+            <% end %>
+          </li>
+          
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to current_user do %>
+                <i class="fa fa-user fa-2x"></i> <%= current_user.nome %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to users_sign_out_path, data: {confirm: "Tem certeza que deseja sair ? "} do %>
+                <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i> Sair
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+    
+    <div class="container">
+      
+      <% if flash[:notice] %>
+        <p class="alert alert-info">
+          <%= flash[:notice] %>
+        </p>
+      <% end %>
+      
+     <%= yield %>
+    </div>
+  </body>
+</html>
